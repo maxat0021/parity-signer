@@ -1,0 +1,8 @@
+[parse]
+include = ["signer"]
+#parse_deps = true
+#clean = true
+
+[parse.expand]
+default_features = false
+crates = ["signer"]
