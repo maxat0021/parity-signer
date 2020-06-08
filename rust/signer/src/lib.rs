@@ -416,6 +416,16 @@ mod tests {
 	}
 
 	#[test]
+	fn test_substrate_sign_flutter() {
+		let msg = "0600c401000004000000004db9e47072af71639ed82c43fef1972d324178cb23330a04eac5c3a19b74f81b86af6d9239e1609f59bda6af5717b88e378978d559f571fd9e10fc7c250ba1";
+		let suri = "ability cave solid soccer gloom thought response hard around minor want welcome//substrate_dev";
+		let signatureFlutter = "f4ff7384609aca844d1b55c33b6a7ce7342683994f362617b8fc883eb2e4392aacdeb9be67f33f0a9f9a6a7047726491c6ac4c1caca2c9d7d57954b0fb441e80";
+		let is_valid = schnorrkel_verify(suri, msg, signatureFlutter).unwrap();
+
+		assert!(is_valid);
+	}
+
+	#[test]
 	fn decrypt_with_ref() {
 		let decrypted_result = decrypt_data(ENCRYPTED_SEED, String::from(PIN)).unwrap();
 		assert_eq!(SEED_PHRASE, decrypted_result);
